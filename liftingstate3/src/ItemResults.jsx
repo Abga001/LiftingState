@@ -1,13 +1,17 @@
-const ItemResults = ({ items }) => {
 
-    const Display = ({ itemName }) => <li>{itemName}</li>
+import ItemDisplay from './ItemDisplay';
+
+
+    function ItemResults({ myItems, handler }) {
     return (
         <ul className="previousSearch">
-            {items.map((itemName, i) => (
-                <Display
+            {myItems.map((itemName, index) => (
+                <ItemDisplay
                     itemName={itemName}
                     // Prevent duplicate keys by appending index:
-                    key={i}
+                    key={index}
+                    id={index}
+                    handler={handler}
                 />
             ))}
         </ul>

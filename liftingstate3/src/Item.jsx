@@ -21,10 +21,24 @@ const Item = () => {
         setItems(items => [...items, itemName]);
     }
 
+    const handleDelete = (id) => {
+        const tempItems = [...items];
+        tempItems.splice(id, 1);
+        setItems(tempItems);
+      };
+
     return (
         <>
             <AddItems submitHandler={submitForm} newItem={newItem} handleAdd={handleAdd} />
-            <ItemResults items={items} />
+            {/* <ItemResults items={items} />*/}
+
+
+         <ItemResults
+        myItems={items}
+        handler={handleDelete}
+    />
+
+        
         </>
     )
 }
